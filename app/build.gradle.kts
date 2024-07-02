@@ -3,6 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -69,16 +70,31 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     // Compose dependencies
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.4.0")
-    implementation("androidx.navigation:navigation-compose:2.4.0-rc01")
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.navigation.compose)
 
     // Dagger - Hilt
-    implementation("com.google.dagger:hilt-android:2.44")
-    kapt("com.google.dagger:hilt-android-compiler:2.44")
-    implementation("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03")
-    kapt("androidx.hilt:hilt-compiler:1.0.0")
-    implementation("androidx.hilt:hilt-navigation-compose:1.0.0-beta01")
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
+   // implementation(libs.androidx.hilt.lifecycle.viewmodel)
+   // kapt(libs.androidx.hilt.compiler)
+    implementation(libs.androidx.hilt.navigation.compose)
 
     // Room
-    implementation("androidx.room:room-runtime:2.4.0")
+    val room_version = "2.6.1"
+
+    implementation(libs.androidx.room.runtime)
+    annotationProcessor(libs.androidx.room.compiler)
+    kapt ("androidx.room:room-compiler:2.6.1")
+    implementation( "androidx.room:room-ktx:2.6.1")
+
+
+    // To use Kotlin annotation processing tool (kapt)
+    //kapt(libs.androidx.room.compiler)
+    // To use Kotlin Symbol Processing (KSP)
+    //ksp(libs.androidx.room.compiler)
+
+}
+kapt {
+    correctErrorTypes = true
 }

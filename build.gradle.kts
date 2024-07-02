@@ -2,6 +2,9 @@
 plugins {
     alias(libs.plugins.android.application) apply false
     alias(libs.plugins.jetbrains.kotlin.android) apply false
+    id("com.google.dagger.hilt.android") version "2.49" apply false
+    id("com.google.devtools.ksp") version "1.8.10-1.0.9" apply false
+
 }
 
 buildscript {
@@ -10,8 +13,8 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath ("com.android.tools.build:gradle:7.0.4")
-        classpath ("org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.31")
-        classpath ("com.google.dagger:hilt-android-gradle-plugin:2.44")
+        classpath (libs.gradle)
+        classpath (libs.kotlin.gradle.plugin)
+        classpath (libs.hilt.android.gradle.plugin)
     }
 }
