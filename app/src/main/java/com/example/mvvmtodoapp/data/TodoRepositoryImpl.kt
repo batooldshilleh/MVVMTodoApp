@@ -13,7 +13,7 @@ class TodoRepositoryImpl(
         todoDao.deleteTodo(todo)
     }
 
-    override suspend fun getAllTodos(): Flow<List<Todo>> {
+    override fun getAllTodos(): Flow<List<Todo>> {
         return todoDao.getAllTodos()
     }
 
