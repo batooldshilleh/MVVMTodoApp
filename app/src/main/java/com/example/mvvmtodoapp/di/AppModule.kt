@@ -23,8 +23,8 @@ object AppModule {
             app,
             TodoDatabase::class.java,
             "todo_db"
-        )
-            .fallbackToDestructiveMigration().build()
+        ).fallbackToDestructiveMigration()
+            .build()
     }
 
     @Provides

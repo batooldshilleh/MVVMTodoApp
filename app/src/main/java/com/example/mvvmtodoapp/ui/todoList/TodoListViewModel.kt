@@ -57,9 +57,7 @@ class TodoListViewModel @Inject constructor(
                         message = "Todo deleted",
                         action = "Undo",))
                 }
-
             }
-
         }
     }
 
@@ -68,5 +66,4 @@ class TodoListViewModel @Inject constructor(
             _uiEvent.send(event)
         }
     }
-
 }

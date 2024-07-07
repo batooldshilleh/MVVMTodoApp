@@ -20,7 +20,6 @@ import androidx.compose.material.icons.filled.Add
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
-
 @Composable
 fun TodoListScreen(
     onNavigate: (UiEvent.NavigateTo) -> Unit,
